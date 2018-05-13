@@ -1,0 +1,151 @@
+.land{
+	text-align: center;
+}
+
+.dropdown-menu{
+	width:100%;
+}
+
+.new_user{
+	padding: 50px;
+}
+.role_btn{
+	width: 100%;
+    text-align: left;
+    background-color: white;
+}
+.role_caret{
+float:right;
+}
+body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color:#b7d3eb;
+}
+.land{
+	text-align: center;
+	border:1px solid #000;
+	/*padding-left: 300px;
+	padding-right: 300px;*/
+	padding:100px 400px 100px 400px;
+}
+
+
+/*landing_page*/
+.landing_page{
+	padding: 50px 100px 50px 100px;
+}
+
+.landing_btn{
+	width:100%;
+	text-align: left;
+	border:1px solid black;
+}
+.landing_caret{
+	float:right;
+}
+.menu{
+	margin-bottom: 40px;
+}
+.landing_page .form-control{
+	width:80%;
+}
+/*plots*/
+.plots .role_btn {
+    width: 80%;
+}
+.plots .glyphicon-plus{
+	float:right;
+}
+.plots .dropdown-menu{
+	width:80%;
+}
+
+/*ref_con*/
+.register p{
+  border:1px solid black;
+  padding: 10px;
+
+}
+.register{
+  background-color: white;
+  border:1px solid black;
+  padding: 50px 70px 50px 70px;
+}
+.enter_otp{
+margin-top: 10px;
+margin-bottom: 10px;
+border:1px solid black;
+
+}
+.reg{
+  padding: 100px 300px 100px 300px;
+}
+.or{
+  text-align: center;
+    width: 53px;
+    display: block;
+    margin: auto;
+}
+.resend_otp{
+  width:40%;
+  border:1px solid black;
+}
+@media only screen and (min-device-width : 320px) and (max-device-width : 991px) {
+.register{
+  padding: 10px 30px 10px 30px;
+}
+.reg{
+  padding: 50px 100px 50px 100px;
+}
+}
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+.reg{
+  padding: 50px 50px 50px 50px;
+}
+}
+
+table.scroll {
+    /* width: 100%; */ /* Optional */
+    /* border-collapse: collapse; */
+    border-spacing: 0;
+    /*border: 2px solid black;*/
+}
+
+table.scroll tbody,
+table.scroll thead { display: block; }
+
+thead tr th { 
+    height: 30px;
+    line-height: 30px;
+    text-align: left; 
+}
+
+table.scroll tbody {
+	border:1px solid black
+    height: 100px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+tbody { border-top: 2px solid black; }
+
+tbody td, thead th {
+    /* width: 20%; */ /* Optional */
+    border-right: 1px solid black;
+    /* white-space: nowrap; */
+}
+
+tbody td:last-child, thead th:last-child {
+    border-right: none;
+}
+
+
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 1200px) {
+.land{
+	padding: 50px 50px 50px 50px;
+}
+}

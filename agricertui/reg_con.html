@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Agriculture</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Page 1-1</a></li>
+            <li><a href="#">Page 1-2</a></li>
+            <li><a href="#">Page 1-3</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Page 2</a></li>
+        <li><a href="#">Page 3</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+
+<style>
+
+</style>
+
+
+
+
+
+
+
+
+
+<div class="container reg">
+  <div class="register">
+  <p >Register a new Account</p>
+  <p>Status :<br>
+  Account Pending email and mobile verification</p>
+  <p>Your account has been succesfully Registered<br>Please check the email and click the link</p>
+  <p class="or">OR</p>
+  <div class="col-md-6 col-xs-6" style="padding-left: 0px;">
+  <input type="name" class="form-control enter_otp" id="name" placeholder="Enter OTP" name="name">
+</div>
+<div class="col-md-6 col-xs-6">
+  <button type="submit " id="submit"   class="btn btn-default btn-primary enter_otp">Submit</button>
+</div>
+<div class=""> 
+<button type="submit " id="resendOTP"   class="btn btn-default btn-primary enter_otp">Resend OTP</button>
+</div>
+<div><button type="submit" id="ok"   class="btn btn-default btn-primary enter_otp disHide" >OK</button></div>
+</div>
+<div class="text-cent">
+  <p  id="userTransactionId" ></p></div>
+</div>
+
+
+<script type="text/javascript" >
+    
+    var role=sessionStorage.getItem("role") 
+
+    
+  $(document).ready(function(){
+//     $("#selRole").on('change',function() {
+//        role=$(this).find("option:selected").text();
+// });
+
+    $("#ok").on("click",function(){
+      if (role=="Farmer"){
+        window.location.href="./assetlist.html"
+      }else if (role== "Fertlizer Agency"){
+        window.location.href="./FertlizerPageAssetList.html"
+      }else if (role=="Certificate Agency"){
+        window.location.href="./approval.html"
+      }
+    })
+    $("button#submit").on('click',function(){
+      var phoneNumber=sessionStorage.getItem("phoneNumber")
+      var userName=sessionStorage.getItem("UserName")
+      var firstName=sessionStorage.getItem("firstName")
+      var lastName=sessionStorage.getItem("lastName")
+      var password=sessionStorage.getItem("password")
+      var address=sessionStorage.getItem("address")
+      var email=sessionStorage.getItem("email")
+      var age=sessionStorage.getItem("age")
+
+      //validation--------------------------------------------------------- 
+var role   =sessionStorage.getItem("role")
+      // validatio ending --------------------------------------------
+      var xhttp = new XMLHttpRequest();
+      var xhr = new XMLHttpRequest();
+      xhttp.open("POST", "http://localhost:4000/users", true);
+      xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+      xhttp.send( "orgName=Org1"+"&username="+userName+"&role="+role+"&secret="+password);
+      xhttp.onreadystatechange = function() {  
+        var message=JSON.parse(this.responseText);
+      //document.getElementById("enrollUser").innerHTML = "Success: "+message["success"];
+        sessionStorage.setItem("token", message["token"]);        
+    another()
+    };
+    //window.location.href="./landing.html"
+        // alert(firstName+" "+lastName)
+    // alert("Text: " + $("#test").text());
+          function another(){
+      //send another request
+            xhr.open("POST", "http://localhost:4000/channels/mychannel/chaincodes/dtwin", true);
+            var obj={ 
+                "fcn":"newuser",
+                "args":[firstName,lastName,age,address,email,phoneNumber]
+              }
+            var data=JSON.stringify(obj);
+            var i=0
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem("token"));
+            xhr.send(data)
+            xhr.onreadystatechange = function() {  
+              $("#userTransactionId").html("Transaction ID: "+xhr.responseText);
+              $("#submit").hide("fast")
+              $("#resendOTP").hide("fast")
+              $("#ok").show("slow")
+            };
+                // alert("tx arrived")
+                
+            // if (i==2){
+            //      window.location.href="./landing.html"
+            //     }
+                          //return true
+       }
+
+    });
+  });
+//      $("#sel2").on('change',function() {
+//        alert($(this).find("option:selected").text()+' clicked!');
+// });
+</script> 
+
+
+</body>
+<style type="text/css">
+  .disHide{
+    display: none;
+  }
+</style>
+</html>

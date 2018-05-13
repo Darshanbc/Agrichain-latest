@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Agriculture</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="css/datepicker.css" rel="stylesheet" type="text/css"/>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ 
+<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/themes/south-street/jquery-ui.css"> 
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> 
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script> 
+
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Page 1-1</a></li>
+            <li><a href="#">Page 1-2</a></li>
+            <li><a href="#">Page 1-3</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Page 2</a></li>
+        <li><a href="#">Page 3</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><bu href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+
+
+
+
+
+
+
+
+
+<div class="container landing_page plots">
+  <div class="col-md-3">
+    
+  <select class="form-control sel" id="sel1">
+        <option style="display: none;">My Account</option>
+        <option><span class="glyphicon glyphicon-file"></span>Account 1</option>
+
+        <option><span class="glyphicon glyphicon-pencil"></span>Profile</option>
+        <option><span class="glyphicon glyphicon-pencil"></span>Account 2</option>
+      </select>
+      <select class="form-control sel" id="sel2">
+        <option style="display: none;">My Address</option>
+        <option><span class="glyphicon glyphicon-file"></span>Watch List</option>
+        <option><span class="glyphicon glyphicon-pencil"></span>Profile</option>
+        
+      </select>
+      <select class="form-control sel" id="sel3">
+        <option style="display: none;">Notes</option>
+        <option><span class="glyphicon glyphicon-file"></span>Notes</option>
+
+        <option><span class="glyphicon glyphicon-pencil"></span>Transaction</option>
+        <option><span class="glyphicon glyphicon-pencil"></span>Address</option>
+      </select>
+      <select class="form-control sel" id="sel4">
+        <option style="display: none;">Assets</option>
+         <option><span class="glyphicon glyphicon-file"></span>Assest 1</option>
+        <option><span class="glyphicon glyphicon-pencil"></span>Asset 2</option>
+        
+      </select>
+  </div>
+
+  
+  <div class="col-md-7">
+    <table class="table table_top">
+    
+    <tbody>
+      <tr>
+        <td > Fertlizer Name</td>
+        <td > <input type="name" class="form-control" id="fname" placeholder=" Fertlizer Name" name="name"></td>
+        
+      </tr>
+      <tr>
+        <td>Fertlizer ID</td>
+        <td> <input type="name" class="form-control" id="fid" placeholder=" Fetlizer ID" name="name"></td>
+      </tr>
+      <tr>
+        <td>Quantity</td>
+        <td> <input type="number" step="1" class="form-control original annotation-step" id="fq" placeholder=" Quantity" name="name"></td>
+      </tr>
+
+      <tr id ="surveyNumberRow" class="disHide">
+        <td>Survey Number</td>
+        <td> <input type="name" class="form-control" id="surveyNumber" placeholder="survey Number" name="Transaction Address"></td>
+        
+      </tr>
+  <!-- ------------------------submit button------------------------- -->
+  <tr>
+     <td>
+          <div class="text-cent">
+            <button  id="submitPage" class="btn btn-default btn-primary"><span class="glyphicon "></span>Submit</button>
+          </div>
+      </td>
+
+  </tr>
+   <tr>
+   <div style="display: inline;">
+     <td>
+          <div class="text-cent ">
+            <button  id="confirm" class="btn btn-default btn-primary disHide"><span class="glyphicon "></span>Confirm</button>
+          </div>
+      </td>
+      <td>
+          <div class="text-cent ">
+            <button  id="edit" class="btn btn-default btn-primary disHide"><span class="glyphicon "></span>Edit</button>
+          </div>
+      </td>
+      <td>
+          <div class="text-cent ">
+            <button  id="ok" class="btn btn-default btn-primary disHide"><span class="glyphicon "></span>OK</button>
+          </div>
+      </td>
+      </div>
+  </tr>
+
+    </tbody>
+  </table>
+   <!-- <button  id="test" class="btn btn-default btn-primary "><span class="glyphicon "></span>test</button> -->
+  <p id="tid"></p>
+  </div>
+</div>
+<script type="text/javascript" >
+  
+   $("#test").on('click',function() {
+      var testvar
+      testvar=$("#fromDate").val()
+      alert(testvar)
+   });
+
+   
+    // -----------------assetlist.....................
+    $("#sel4").on('change',function() {
+      window.location.href="./assetlist.html"
+    });
+
+
+    //--------------------submit------------------------
+    $("#submitPage").on('click',function() {
+          $("#fname").attr('readonly','readonly');
+          $("#fid").attr('disabled','disabled');
+          $("#fq").attr('disabled','disabled');
+          $(this).hide("fast")
+          $('#confirm').show("fast");
+          $('#edit').show("fast");
+
+        });
+
+// -----------------------confirm--------------------
+ $("#confirm").on('click',function() {
+  // --send invoke-----------
+  
+    var fname=$("#fname").val()
+    var fid=$("#fid").val()
+    var fq=parseFloat($("#fq").val())
+    
+    var args={}
+    args["fertlizer_name"]=fname
+    args["fertlizer_id"]=fid
+    args["quantity"]=fq
+    var argArr=[]
+    argArr.push(JSON.stringify(args))
+    var data={}
+    data["fcn"]="addStock"
+    data["args"]=argArr
+    var restdata=JSON.stringify(data)
+    // validatecrop(cropName)
+    if(validatefert(fid,fq,fname)){
+      // alert(restdata)
+      $("#confirm").hide("fast")
+      $('#edit').hide("fast")
+      $('#ok').show("fast")   
+      invoke(restdata)    
+    }
+
+ });
+  // -----------------------validate fert-----------------------
+function validatefert(fid,fq,fname){
+  if (fid=="" ||fq==""||fname==""){
+    alert("some field is missing")
+    return false
+  }
+  else{
+    return true
+  } 
+}
+ // -----------------------validate crop-----------------------
+ function validatecrop(cropName){
+  if(toDate==""||fromDate==""){
+    alert("Date is empty")
+    return false
+  }
+  if (cropName==null) {
+    alert("Crop name is empty")
+    return false
+  }
+  if(cropPlot==null){
+    alert("Plot not selected")
+    return false
+  }
+  return true
+ }
+
+ //---------------------------invoke----------------
+ function invoke(restdata){
+  var xhr = new XMLHttpRequest();
+    xhr.open("POST", "http://localhost:4000/channels/mychannel/chaincodes/dtwin", true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem("token"));
+    // var surveyNumber=$("#surveyNumber").val()
+    xhr.send(restdata)
+    
+    xhr.onreadystatechange = function() {
+      $('#tid').html("Transaction ID: "+xhr.responseText);
+      
+    };
+ }
+// ========================ok===================
+ $("#ok").on('click',function() {
+      window.location.href="./FertlizerPageAssetList.html"
+ });
+
+// --------------------------edit----------------------
+ $("#edit").on('click',function() {
+  // --edit -----------
+    $('#fname').removeAttr('readonly');
+    $('#fid').removeAttr('disabled');
+    $('#fq').removeAttr('disabled');
+    $('#submitPage').show("fast")
+    $('#confirm').hide("fast");
+    $('#edit').hide("fast");
+
+ });
+//------------------------load Plot----------------------
+//   $("#loadPlot").on('click',function() {
+    
+//     var token=sessionStorage.getItem("token")
+//     var xhr = new XMLHttpRequest();
+//     var uri= "http://localhost:4000/channels/mychannel/chaincodes/dtwin?peer=peer0.org1.example.com&fcn=queryPlot&args=%5B%22%22%5D"
+//      xhr.onreadystatechange = function() {
+//       if (xhr.readyState == 4 && xhr.status == 200){
+//         var arr=JSON.parse(xhr.responseText)
+//         if (arr.length>0){
+//           for (var i = 0; i <arr.length; i++) {
+//             // alert(arr[i])
+//             $('<option id="plot'+i+'">'+arr[i]+'</option>').appendTo('#selPlotforCrop')
+//           }
+//         }
+//      }
+// }
+//     xhr.open("GET",uri,true)
+//     xhr.setRequestHeader("Content-Type", "application/json");
+//     xhr.setRequestHeader('Authorization', 'Bearer ' + 
+//     sessionStorage.getItem("token"));
+//     xhr.send();
+
+//         });
+
+</script> 
+
+</body>
+<style type="text/css">
+  .disHide{
+    display: none;
+  }
+</style>
+</html>

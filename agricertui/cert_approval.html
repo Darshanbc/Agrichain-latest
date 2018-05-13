@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Agriculture</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Page 1-1</a></li>
+            <li><a href="#">Page 1-2</a></li>
+            <li><a href="#">Page 1-3</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Page 2</a></li>
+        <li><a href="#">Page 3</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+
+<style>
+
+</style>
+
+
+
+
+
+
+
+<style>
+.table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+    height: 250px;
+}
+</style>
+
+<div class="container">
+ <div class="col-md-3">
+  <select class="form-control sel" id="sel1">
+        <option style="display: none;">My Account</option>
+        <option><span class="glyphicon glyphicon-file"></span> Account 1</option>
+
+        <option><span class="glyphicon glyphicon-pencil"></span> Profile</option>
+        <option><span class="glyphicon glyphicon-pencil"></span> Account 2</option>
+      </select>
+      <select class="form-control sel" id="sel1">
+        <option style="display: none;">My Address</option>
+        <option><span class="glyphicon glyphicon-file"></span> Watch List</option>
+
+        <option><span class="glyphicon glyphicon-pencil"></span> Profile</option>
+        
+      </select>
+      <select class="form-control sel" id="sel1">
+        <option style="display: none;">Notes</option>
+        <option><span class="glyphicon glyphicon-file"></span> Notes</option>
+
+        <option><span class="glyphicon glyphicon-pencil"></span> Transaction</option>
+        <option><span class="glyphicon glyphicon-pencil"></span> Address</option>
+      </select>
+      <select class="form-control sel" id="sel1">
+        <option style="display: none;">Assets</option>
+        <option><span lass="glyphicon glyphicon-file"></span> Assest 1</option>
+
+        <option><span class="glyphicon glyphicon-pencil"></span> Asset 2</option>
+        
+      </select>
+   
+  </div>
+
+
+  <div class="col-md-8" > 
+
+
+
+  <table id="requestTable" style="background-color: white" class="table scroll">
+    <thead>
+      <tr>
+        <th style="width: 490px">Transaction ID</th>
+        <th style="width: 40px">Details</th>
+        <th style="width: 40px">Approve</th>
+        <th style="width: 40px">Reject</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      
+    </tbody>
+  </table>         
+  <div style="display:inline;" class="col-md-12">
+  <button type="submit" id="refresh"  class="btn btn-default btn-primary">Refresh</button></div>
+  <div id="divlist"  class="col-md-12">
+  <h4 id="cropHead" class="disHide"><b>Crop Details</b></h4>
+  <table id="CropDetails" style="background-color: white" class="disHide">
+    <thead>
+      <tr>
+        <th>Crop Name</th>
+        <th> Crop Cycle </th> 
+    </tr>
+    </thead>
+    <tbody>
+  
+   </tbody>
+  </table> 
+  <br>
+<h4 id="fertHead" class="disHide"><b>Fertilizer List</b></h4>
+  <table id="FertDetails" style="background-color: white" class="disHide">
+    <thead>
+      <tr>
+        <th> Fertilizer Name</th>
+        <th>Fertlizer ID</th>
+        <th>Quantity</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+    </tbody>
+  </table>
+  </div>
+  </div>
+</div>
+
+<style>
+table.scroll {
+    /* width: 100%; */ /* Optional */
+    /* border-collapse: collapse; */
+    border-spacing: 0;
+    border: 1px solid black;
+}
+.table>thead>tr>th {
+    vertical-align: bottom;
+    border-bottom: 1px solid #000;
+    padding: 10px !important;
+    width:100% !important;
+}
+
+table.scroll tbody,
+table.scroll thead { display: block; }
+
+thead tr th { 
+    height: 30px;
+    line-height: 30px;
+     text-align: center; 
+}
+
+table.scroll tbody {
+    height: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+
+
+
+tbody td:last-child, thead th:last-child {
+    border-right: none;
+}
+</style>
+<script>
+// Change the selector if needed
+var $table = $('table.scroll'),
+    $bodyCells = $table.find('tbody tr:first').children(),
+    colWidth;
+
+// Adjust the width of thead cells when window resizes
+$(window).resize(function() {
+    // Get the tbody columns width array
+    colWidth = $bodyCells.map(function() {
+        return 450//$(this).width();
+    }).get();
+    
+    // Set the width of thead columns
+    $table.find('thead tr').children().each(function(i, v) {
+        $(v).width(colWidth[i]);
+    });    
+}).resize(); // Trigger resize handler
+// ----------------------table end===========================
+$("#refresh").on('click', function () {
+  var token = sessionStorage.getItem("token")
+  var xhr = new XMLHttpRequest();
+  var uri = "http://localhost:4000/channels/mychannel/chaincodes/dtwin?peer=peer0.org1.example.com&fcn=queryPendingRequests&args=%5B%22certificate%22%5D"
+  xhr.open("GET", uri, true)
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.setRequestHeader('Authorization', 'Bearer ' +
+  sessionStorage.getItem("token"));
+  xhr.send();
+  xhr.onreadystatechange = function () {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+          var arr = JSON.parse(xhr.responseText)
+          if (arr.length > 0) {
+              for (var i = 0; i < arr.length; i++) {
+                  // alert(arr[i])
+                  $('<tr><td id=\"txid'+i+'\">'+arr[i]+'</td><td><button  id=\"details'+i+'\" onclick=\"details('+i+')\" class=\"btn btn-default btn-primary\"><span class=\"glyphicon  glyphicon-list-alt \"></span></button></td><td><button onclick= \"permission('+i+',\'yes\')\" id=\"approve'+i+'\" class=\"btn btn-default btn-primary\"><span class=\"glyphicon glyphicon-ok \"></span></button></td><td><button onclick=\"permission('+i+',\'no\')\"  id=\"reject'+i+'\" class=\"btn btn-default btn-primary\"><span class=\"glyphicon glyphicon-remove \"></span></button></td></tr>').appendTo('#requestTable tbody')
+              }
+          }
+      }
+  }
+
+});
+
+function details(i){
+  var token = sessionStorage.getItem("token")
+  var txid=$("#txid"+i+"").text()
+  var xhr = new XMLHttpRequest();
+  var uri = "http://localhost:4000/channels/mychannel/transactions/"+txid+"/writeSet?peer=peer0.org1.example.com"
+  xhr.open("GET", uri, true)
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.setRequestHeader('Authorization', 'Bearer ' +
+  sessionStorage.getItem("token"));
+  xhr.send();
+  xhr.onreadystatechange = function () {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+          var arr = JSON.parse(xhr.responseText)
+          if (arr!= null) {
+            
+            var cropName=arr["asset"]["cropID"]["crop_name"]
+            var fromDate=arr["asset"]["cropID"]["crop_cycle"]["from_month"]
+            var toDate=arr["asset"]["cropID"]["crop_cycle"]["to_month"]
+            $("<tr><td>"+cropName+"</td><td>"+fromDate+" -- "+toDate+"</td></tr>").appendTo("#CropDetails tbody")    
+
+            var fertArr=arr["asset"]["fertList"]
+            for (var i = 0; i < fertArr.length; i++) {
+              $("<tr><td>"+fertArr[i]["fertlizer_name"]+"</td><td>"+fertArr[i]["fertlizer_id"]+"</td><td>"+fertArr[i]["quantity"]+"</td></tr>").appendTo("#FertDetails tbody") 
+              $("#CropDetails").show("fast")
+              $("#fertHead").show("fast")
+              $("#cropHead").show("fast")
+              $("#FertDetails").show("fast") 
+              // $("#divlist").hide("fast")           
+            }
+          }
+      }
+  }
+
+}
+function permission(i,key){
+
+  var token = sessionStorage.getItem("token")
+  var txid=$("#txid"+i+"").text()
+  var xhr = new XMLHttpRequest();
+  var uri ="http://localhost:4000/channels/mychannel/chaincodes/dtwin/"+txid+"?peer=peer0.org1.example.com&fcn=ApproveOrDenyFertilizer&permission="+key+""
+  console.log(txid)
+  xhr.onreadystatechange = function () {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        alert(xhr.responseText)
+      }
+    }
+  xhr.open("GET", uri, true)
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.setRequestHeader('Authorization', 'Bearer ' +
+  sessionStorage.getItem("token"));
+  xhr.send();  
+}
+</script>
+
+
+
+
+
+               
+</body>
+<style type="text/css">
+  .disHide{
+    display: none;
+  }
+</style>
+</html>

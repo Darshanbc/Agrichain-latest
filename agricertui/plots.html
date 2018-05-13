@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Agriculture</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href="css/datepicker.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/themes/south-street/jquery-ui.css"> 
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> 
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script> 
+        <!-- <script type="text/javascript" src="js/jquery.validate.js"></script> -->
+    <body>
+
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>                        
+                    </button>
+                    <a class="navbar-brand" href="#">WebSiteName</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="index.html">Home</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Page 1-1</a></li>
+                                <li><a href="#">Page 1-2</a></li>
+                                <li><a href="#">Page 1-3</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Page 2</a></li>
+                        <li><a href="#">Page 3</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                        <li><bu href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+
+
+
+
+
+
+
+
+        <div class="container landing_page plots">
+            <div class="col-md-3">
+
+                <select class="form-control sel" id="sel1">
+                    <option style="display: none;">My Account</option>
+                    <option><span class="glyphicon glyphicon-file"></span>Account 1</option>
+
+                    <option><span class="glyphicon glyphicon-pencil"></span>Profile</option>
+                    <option><span class="glyphicon glyphicon-pencil"></span>Account 2</option>
+                </select>
+                <select class="form-control sel" id="sel2">
+                    <option style="display: none;">My Address</option>
+                    <option><span class="glyphicon glyphicon-file"></span>Watch List</option>
+                    <option><span class="glyphicon glyphicon-pencil"></span>Profile</option>
+
+                </select>
+                <select class="form-control sel" id="sel3">
+                    <option style="display: none;">Notes</option>
+                    <option><span class="glyphicon glyphicon-file"></span>Notes</option>
+
+                    <option><span class="glyphicon glyphicon-pencil"></span>Transaction</option>
+                    <option><span class="glyphicon glyphicon-pencil"></span>Address</option>
+                </select>
+                <select class="form-control sel" id="sel4">
+                    <option style="display: none;">Assets</option>
+                    <option><span class="glyphicon glyphicon-file"></span>Assest 1</option>
+                    <option>Asset 2</option>
+
+                </select>
+            </div>
+
+
+            <div class="col-md-7">
+                <table class="table table_top">
+
+                    <tbody>
+                        <tr>
+                            <td > Asset Name</td>
+                            <td > <input type="name" class="form-control" id="name" placeholder=" Asset Name" name="name"></td>
+
+                        </tr>
+                        <tr>
+                            <td>Asset Type</td>
+                            <td> <div class="dropdown">
+                                    <select class="form-control sel" id="selAsset">
+                                        <option style="display: none;">Assets</option>
+                                        <option><span class="glyphicon glyphicon-file"></span>Plot</option>
+                                        <option><span class="glyphicon glyphicon-pencil"></span>Crop</option>
+                                        <option><span class="glyphicon glyphicon-pencil"></span>Fertilizer</option>
+
+                                    </select>
+                                </div></td>
+                            <!-- ------------------------------plot-------------------------   -->
+                        </tr>
+                        <tr id ="surveyNumberRow" class="disHide">
+                            <td>Survey Number</td>
+                            <td> <input type="name" class="form-control" id="surveyNumber" placeholder="survey Number" name="Transaction Address"></td>
+
+                        </tr>
+                        <tr id="soilTypeRow" class="disHide">
+                            <td>Soil</td>
+                            <td> <div class="dropdown">
+                                    <select class="form-control sel" id="soilType">
+                                        <option style="display: none;">Soil type</option>
+                                        <option><span class="glyphicon "></span>A</option>
+                                        <option><span class="glyphicon "></span>B</option>
+                                        <option><span class="glyphicon "></span> C</option>
+                                        <option><span class="glyphicon "></span> D</option>
+                                    </select>
+                                </div></td>
+
+                        </tr>
+                        <tr id="coordinatestabRow" class="disHide">
+                            <td>Co-ordinates</td>
+                            <td>  <div class="table">   
+                                    <table id="coordinates" class="table table_top">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <input type="text" class="form-control" id="x1" placeholder="Co-ordinates" name="Co-ordinates"> <span class="glyphicon "></span>
+                                                </td> 
+                                                <td>
+                                                    <input type="text" class="form-control" id="y1" placeholder="Co-ordinates" name="Co-ordinates"> <span class="glyphicon "></span>                        
+                                                </td>
+                                                <td>
+                                                    <div class="text-cent">
+                                                        <button  id="addCoordinates" class="btn btn-default btn-primary"><span class="glyphicon glyphicon-plus"></span></button></div>
+
+                                                </td>
+                                                <td>
+                                                    <div class="text-cent">
+                                                        <button  id="delCoordinates" class="btn btn-default btn-primary"><span class="glyphicon glyphicon-minus"></span></button></div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- ------------------------fertilizer---------------------------- -->
+                        <tr id="selectfertplaceRow" class="disHide">
+                            <td>Add to</td>
+                            <td> <div class="dropdown">
+                                    <select class="form-control sel" id="selectfertplace">
+                                        <option style="display: none;">Select place</option>
+                                        <option><span class="glyphicon "></span>Store</option>
+                                        <option><span class="glyphicon "></span>Plot</option>
+                                    </select>
+                                </div></td>
+                        </tr>
+
+                        <tr id="dealerRow" class="disHide">
+                            <td>Dealer</td>
+                            <td> <div class="dropdown">
+                                    <select class="form-control sel" id="seldealer">
+                                        <option style="display: none;">Select dealer</option>
+                                    </select>
+                                </div></td>
+                            <td>
+                                <div class="text-cent">
+                                    <button  id="loadDealer" class="btn btn-default btn-primary"><span class="glyphicon glyphicon-refresh"></span></button></div>
+                            </td>
+                        </tr>
+                        <!-- ------------------------fertilizer ends ---------------------------- -->
+                        <!-- ---------------crop---------------------   -->
+                        <tr id="cropNameRow" class="disHide">
+                            <td>Crop Name</td>
+                            <td> <input type="name" class="form-control" id="cropName" placeholder="Crop Name" name="Co-ordinates"> <span class="glyphicon "></span></td>
+
+                        </tr>
+
+                        <tr id="cropCycleRow" class="disHide">
+                            <td>Crop Cycle</td>
+                            <td><div class="text-cent "><input type="text" id="fromDate" placeholder="From"> <span class="glyphicon "></span></div></td>
+
+                            <td><div class="text-cent "><input type="text" id="toDate" placeholder="To"> <span class="glyphicon "/required></span></div></td>
+                        </tr>
+
+                        <tr id="selPlotforCroprow" class="disHide">
+                            <td>Select Plot</td>
+                            <td> <div class="dropdown">
+                                    <select class="form-control sel" id="selPlotforCrop" >
+                                        <option style="display: none;">Select plot</option>
+                                    </select></div>
+                            </td>
+                            <td>
+                                <div id="plotload" class="text-cent">
+                                    <button  id="loadPlot" class="btn btn-default btn-primary"><span class="glyphicon glyphicon-refresh"></span></button></div>
+                            </td>
+
+                        </tr>
+                        <tr id="fertlizerListRow" class="disHide">
+                            <td>
+                                Select Fertilizer
+                            </td>
+                            <td>
+                                <div style="overflow-y :scroll; width: 420px; height :200px; background-color:white; border: 1px solid black;">
+                                    <table id="loadStockTable" class="table table_top">
+                                        <tbody id="fertListTab">
+                                            <tr>
+
+                                                <td>
+                                                    Fertlizer Name
+                                                </td>
+                                                <td>
+                                                    Fertilizer ID
+                                                </td>
+                                                <td>
+                                                    Quantity
+                                                </td>
+                                                <td>Required</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </td>
+                            <td><button  id="loadStock" class="btn btn-default btn-primary"><span class="glyphicon glyphicon-refresh"></span></button></td>
+                        </tr>
+                        <!-- ------------------------crop ends--------------------------- -->
+
+                        <!-- ------------------------submit button------------------------- -->
+                        <tr>
+                            <td>
+                                <div class="text-cent">
+                                    <button  id="submitPage" class="btn btn-default btn-primary"><span class="glyphicon "></span>Submit</button>
+                                </div>
+                            </td>
+
+                        </tr>
+                        <tr>
+                    <div style="display: inline;">
+                        <td>
+                            <div class="text-cent ">
+                                <button  id="confirm" class="btn btn-default btn-primary disHide"><span class="glyphicon "></span>Confirm</button>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="text-cent ">
+                                <button  id="edit" class="btn btn-default btn-primary disHide"><span class="glyphicon "></span>Edit</button>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="text-cent ">
+                                <button  id="ok" class="btn btn-default btn-primary disHide"><span class="glyphicon "></span>OK</button>
+                            </div>
+                        </td>
+                    </div>
+                    </tr>
+
+                    </tbody>
+                </table>
+                <!-- <button  id="test" class="btn btn-default btn-primary "><span class="glyphicon "></span>test</button> -->
+                <p id="tid"></p>
+            </div>
+        </div>
+        <script type="text/javascript" >
+            var assetType
+            var soil
+            var coordinates = []
+            var cropName
+            var fromDate
+            var toDate
+            var cropPlot
+            var fertPlace
+            var dealer
+            var surveyNumber
+            var place
+            var seldealer
+            $("#test").on('click', function () {
+
+            })
+            //------------------------load Stock-------------------------
+            $("#loadStock").on("click", function () {
+                var token = sessionStorage.getItem("token")
+                var xhr = new XMLHttpRequest();
+                var key
+                if (place == "Plot") {
+                    key = ""//stock will be feteched from farmer enroll id
+                } else if (place == "Store") {
+                    key = seldealer //stock will be fetched from kycID of dealer
+                }
+                console.log("key=" + key)
+                var uri = "http://localhost:4000/channels/mychannel/chaincodes/dtwin?peer=peer0.org1.example.com&fcn=queryStock&args=%5B%22" + key + "%22%5D"
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        var arr = JSON.parse(xhr.responseText)
+                        console.log(arr)
+                        for (var i = 0; i < arr.length; i++) {
+                            var fertname = arr[i].fertlizer_name
+                            var fertId = arr[i].fertlizer_id
+                            var fertquantity = arr[i].quantity
+                            $("<tr><td>" + fertname + "</td><td>" + fertId + "</td><td>" + fertquantity + "</td><td><input type=\"number\" step=\"1\" class=\"original annotation-step step enableDisable\" width= 50px id=\"fq" + (i+1) + "\"  name=\"name\"></td></tr>").appendTo("table#loadStockTable > tbody")
+                        }
+                    }
+                }
+                xhr.open("GET", uri, true)
+                xhr.setRequestHeader("Content-Type", "application/json");
+                xhr.setRequestHeader('Authorization', 'Bearer ' +
+                        sessionStorage.getItem("token"));
+                xhr.send();
+//                var rowcount = $("#loadStockTable tr").length
+                // console.log("row cnt"+rowcount)
+
+
+            })
+
+            // ---------------------loadDealer-------------------
+
+            $("#loadDealer").on("click", function () {
+                var token = sessionStorage.getItem("token")
+                var xhr = new XMLHttpRequest();
+                var uri = "http://localhost:4000/channels/mychannel/chaincodes/dtwin?peer=peer0.org1.example.com&fcn=listDealers&args=%5B%22%22%5D"
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        var arr = JSON.parse(xhr.responseText)
+                        if (arr.length > 0) {
+                            for (i = 0; i < arr.length; i++) {
+                                $('<option id="' + arr[i]["kyc_id"] + '">' + arr[i]["full_name"] + '</option>').appendTo('#seldealer')
+                            }
+                            // console.log(arr.length)
+                            // console.log(arr[0][""])
+                            // for (var i = 0; i <arr.length; i++) {
+                            //   // alert(arr[i])
+                            //   $('<option id="plot'+i+'">'+arr[i]+'</option>').appendTo('#selPlotforCrop')
+                            // }
+                        }
+                    }
+                }
+                xhr.open("GET", uri, true)
+                xhr.setRequestHeader("Content-Type", "application/json");
+                xhr.setRequestHeader('Authorization', 'Bearer ' +
+                        sessionStorage.getItem("token"));
+                xhr.send();
+
+            })
+
+            //------------------------------sealect dealer------------------
+            $("#seldealer").on('change', function () {
+                seldealer = $(this).find("option:selected").attr("id");
+                console.log(seldealer)
+            })
+            //------------------------select fertilizer-----------------
+            $("#selectfertplace").on('change', function () {
+                place = $(this).find("option:selected").text()
+                if (place == "Plot") {
+                    $('#selPlotforCroprow').show("fast");
+                    $('#dealerRow').hide("fast");
+                } else if (place == "Store") {
+                    $('#dealerRow').show("fast");
+                    $('#selPlotforCroprow').hide("fast");
+                }
+            })
+
+            // ----------------------plot namwe for acrop addition---------------------------
+            $("#selPlotforCrop").on('change', function () {
+                cropPlot = $(this).find("option:selected").text()
+            });
+            // -----------------assetlist.....................
+            $("#sel4").on('change', function () {
+                window.location.href = "./assetlist.html"
+            });
+            // ------------------------Add coordinates--------------------------
+            $("button#addCoordinates").on("click", function () {
+                // body...
+                var rowCount = $('#coordinates tr').length;
+                $("<tr id =\"coordinatesRow" + rowCount + 1 + "\"><td><input type=\"text\" class=\"form-control\" id=\"x" + (rowCount + 1) + "\" placeholder=\"Co-ordinates\" name=\"Co-ordinates\"> <span class=\"glyphicon \"></span></td><td><input type=\"text\" class=\"form-control\" id=\"y" + (rowCount + 1) + "\" placeholder=\"Co-ordinates\" name=\"Co-ordinates\"> <span class=\"glyphicon \"></span></td></tr>").appendTo("table#coordinates > tbody")
+            });
+        // ------------------------------del coordinates----------------------------
+            $("button#delCoordinates").on("click", function () {
+                if ($('#coordinates tr').length > 1) {
+                    $('#coordinates tr:last').remove();
+                }
+            })
+            // --------------------------------Assettype-----------------------------
+            $("#selAsset").on('click', function () {
+                assetType = $(this).find("option:selected").text()
+                console.log(assetType)
+                //   alert(assetType=="Plot")
+                if (assetType == "Plot") {
+                    hideAll()
+                    $('#surveyNumberRow').show("fast");
+                    $('#soilTypeRow').show("fast");
+                    $('#coordinatestabRow').show("fast");
+
+
+                } else if (assetType == "Crop") {
+                    hideAll()
+                    $('#cropNameRow').show("fast");
+                    $('#cropCycleRow').show("fast");
+                    $('#selPlotforCroprow').show("fast");
+
+                } else if (assetType == "Fertilizer") {
+                    hideAll()
+                    $('#selectfertplaceRow').show("fast");
+                    $('#fertlizerListRow').show("fast")
+                    //
+                }
+            });
+            function hideAll() {
+                $('#surveyNumberRow').hide("fast");
+                $('#soilTypeRow').hide("fast");
+                $('#coordinatestabRow').hide("fast");
+                $('#cropNameRow').hide("fast");
+                $('#cropCycleRow').hide("fast");
+                $('#selPlotforCroprow').hide("fast");
+                $('#selectfertplaceRow').hide("fast");
+                $('#dealerRow').hide("fast");
+                $('#confirm').hide("fast");
+                $('#edit').hide("fast");
+                $('#fertlizerListRow').hide("fast")
+            }
+        // --------------------------------Assettype-----------------------------
+            $("#soilType").on('click', function () {
+                soil = $(this).find("option:selected").text()
+            });
+            // ---------------------------------data picker-------------------------
+            //-----------------------from date-------------------------------
+            jQuery(function ($) {
+                $('#fromDate,#toDate').datepicker({dateFormat: 'dd-mm-yy', changeMonth: true, changeYear: true, });
+            });
+
+            //--------------------submit------------------------
+            $("#submitPage").on('click', function () {
+                $("#name").attr('readonly', 'readonly');
+                $("#selAsset").attr('disabled', 'disabled');
+                if (assetType == "Plot") {
+                    $("#soilType").attr('disabled', 'disabled');
+                    var rowCount = $('#coordinates tr').length;
+                    for (var i = rowCount - 1; i >= 0; i--) {
+                        $("#x" + (i + 1)).attr("disabled", "disabled")
+                        $("#y" + (i + 1)).attr("disabled", "disabled")
+                    }
+                    $('#addCoordinates').hide("fast");
+                    $('#delCoordinates').hide("fast");
+                    $("#surveyNumber").attr('readonly', 'readonly');
+                } else if (assetType == "Crop") {
+                    $("#cropName").attr("disabled", "disabled")
+                    $("#fromDate").attr("disabled", "disabled")
+                    $("#toDate").attr("disabled", "disabled")
+                    $("#selPlotforCrop").attr("disabled", "disabled")
+                    $("#loadPlot").hide("fast")
+
+                }else if(assetType=="Fertilizer"){
+                  $("#selectfertplace").attr("disabled","disabled")
+                  $("#seldealer").attr("disabled","disabled")
+                  $("#selPlotforCrop").attr("disabled","disabled")
+                  $("#plotload").hide("fast")
+                  $(".enableDisable").css("disabled","disabled")
+                  $("#loadPlot").hide("fast")
+                  $("#loadDealer").hide("fast")
+                  $("#loadStock").hide("fast")
+
+                }
+
+                $(this).hide("fast")
+                $('#confirm').show("fast");
+                $('#edit').show("fast");
+
+            });
+
+        // -----------------------confirm--------------------
+            $("#confirm").on('click', function () {
+                // --send invoke-----------
+                console.log("asset type" + assetType)
+                if (assetType == "Plot") {
+                    var args = {}
+                    var argArr = []
+                    var rowCount = $('#coordinates tr').length;
+                    var coordinatesArr = []
+                    for (var i = rowCount - 1; i >= 0; i--) {
+                        var obj = {}
+                        obj["lattitude"] = parseFloat($("#x" + (i + 1)).val())
+                        obj["longitude"] = parseFloat($("#y" + (i + 1)).val())
+                        coordinatesArr.push(obj)
+                    }
+                    args["survey_no"] = $("#surveyNumber").val()
+                    args["soil_type"] = soil
+                    args["co_ordinates"] = coordinatesArr
+                    argArr.push(JSON.stringify(args))
+                    var data = {}
+                    data["fcn"] = "PlotRegisteration"
+                    data["args"] = argArr
+                    var restdata = JSON.stringify(data)
+                    invoke(restdata)
+                    $("#confirm").hide("fast")
+                    $('#edit').hide("fast")
+                    $('#ok').show("fast")
+
+                } else if (assetType == "Crop") {
+
+                    // var xhr = new XMLHttpRequest();
+                    var cropName = $("#cropName").val()
+                    var argsArr = []
+                    argsArr.push(cropPlot)
+                    var cropstruct = {}
+                    cropstruct["crop_name"] = cropName
+                    var cycleobj = {}
+                    // alert(fromDate)
+                    fromDate = $("#fromDate").val()
+                    toDate = $("#toDate").val()
+                    cycleobj["from_month"] = fromDate
+                    cycleobj["to_month"] = toDate
+                    cropstruct["crop_cycle"] = cycleobj
+                    argsArr.push(JSON.stringify(cropstruct))
+                    argsArr.push("certRegistration")
+                    var data = {}
+                    data["fcn"] = "CropDetails"
+                    data["args"] = argsArr
+                    var restdata = JSON.stringify(data)
+                    // validatecrop(cropName)
+                    if (validatecrop(cropName)) {
+                        // alert(restdata)
+                        invoke(restdata)
+                    }
+
+                } else if(assetType=="Fertilizer"){
+                    if(place=="Store"){
+                        //capture fert details
+                        var fertArr=[]
+                        var fertArrstring=captureFertdeatils()
+                        if (fertArrstring!=""){
+                          fertArr.push(fertArrstring)
+                          fertArr.push(seldealer)
+                          console.log(fertArr)
+                          var data={}
+                          data["fcn"]="addStock"
+                          data["args"]=fertArr
+                          var restdata=JSON.stringify(data)
+                          // alert(restdata)
+                          invoke(restdata)
+                        }else{
+                          alert("select the quantity")
+                        }
+                    }else if(place=="Plot"){
+                        //capture fert details
+                        var fertArr=[]
+                        fertArr.push(cropPlot)
+                        fertArr.push(captureFertdeatils())
+                        var data={}
+                        data["fcn"]="addFertilizerToCrop"
+                        data["args"]=fertArr
+                        var restdata=JSON.stringify(data)
+                        invoke(restdata)
+                    }
+                }
+
+            });
+        // capture fert details
+        function captureFertdeatils(){
+            var fertArray=[]
+//            var fertObj={}
+            var quantity
+//            var i=-1
+            var TabRowCount = $('#loadStockTable tr').length;
+//            var table = document.getElementById("loadStockTable");
+            var table=document.getElementById("loadStockTable");
+            for (var i = 0, row; row = table.rows[i]; i++) {
+                if(i>0 && ($("#fq"+i+"").val()!="")){
+                    var fertObj={}
+                    fertObj["fertlizer_name"]=row.cells[0].innerHTML
+                    fertObj["fertlizer_id"]=row.cells[1].innerHTML
+                    quantity=parseFloat($("#fq"+i+"").val())
+                    fertObj["quantity"]=quantity
+                    fertArray.push(fertObj)
+//                    console.log(fertArray)
+                }    
+   
+            }
+            
+            return JSON.stringify(fertArray)
+            
+            
+        }
+
+            // -----------------------validate crop-----------------------
+            function validatecrop(cropName) {
+                if (toDate == "" || fromDate == "") {
+                    alert("Date is empty")
+                    return false
+                }
+                if (cropName == null) {
+                    alert("Crop name is empty")
+                    return false
+                }
+                if (cropPlot == null) {
+                    alert("Plot not selected")
+                    return false
+                }
+                return true
+            }
+
+            //---------------------------invoke----------------
+            function invoke(restdata) {
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", "http://localhost:4000/channels/mychannel/chaincodes/dtwin", true);
+                xhr.setRequestHeader("Content-Type", "application/json");
+                xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem("token"));
+                // var surveyNumber=$("#surveyNumber").val()
+                xhr.send(restdata)
+
+                xhr.onreadystatechange = function () {
+                  if (xhr.readyState == 4 && xhr.status == 200) {
+                    $("#confirm").hide("fast")
+                    $('#edit').hide("fast")
+                    $('#ok').show("fast")
+                    $('#tid').html("Transaction ID: " + xhr.responseText);
+                  }  
+                };
+            }
+        // ========================ok===================
+            $("#ok").on('click', function () {
+                window.location.href = "./assetlist.html"
+            });
+
+        // --------------------------edit----------------------
+            $("#edit").on('click', function () {
+                // --edit -----------
+                $('#name').removeAttr('readonly');
+                $('#selAsset').removeAttr('disabled');
+                if (assetType == "Plot") {
+                    $('#surveyNumber').removeAttr('readonly');
+                    $('#soilType').removeAttr('disabled');
+                    var rowCount = $('#coordinates tr').length;
+                    for (var i = rowCount - 1; i >= 0; i--) {
+                        $("#x" + (i + 1)).removeAttr("disabled")
+                        $("#y" + (i + 1)).removeAttr("disabled")
+                    }
+                    $('#addCoordinates').show("fast");
+                    $('#delCoordinates').show("fast");
+                } else if (assetType == "Crop") {
+                    $("#cropName").removeAttr("disabled")
+                    $("#fromDate").removeAttr("disabled")
+                    $("#toDate").removeAttr("disabled")
+                    $("#selPlotforCrop").removeAttr("disabled")
+                    $("#loadPlot").show("fast")
+                }else if(assetType=="Fertilizer"){
+                  $("#selectfertplace").removeAttr("disabled")
+                  $("#seldealer").removeAttr("disabled")
+                  $("#selPlotforCrop").removeAttr("disabled")
+                  $("#plotload").show("fast")
+                  $(".enableDisable").css("disabled","false")
+                  $("#loadPlot").show("fast")
+                  $("#loadDealer").show("fast")
+                  $("#loadStock").show("fast")
+                }
+                $('#submitPage').show("fast")
+                $('#confirm').hide("fast");
+                $('#edit').hide("fast");
+
+            });
+        //------------------------load Plot----------------------
+            $("#loadPlot").on('click', function () {
+//                $("#plotload").empty()
+//                $(" <button  id=\"loadPlot\" class=\"btn btn-default btn-primary\"><span class=\"glyphicon glyphicon-refresh\"></span></button> ").appendTo("#plotload")
+                var token = sessionStorage.getItem("token")
+                var xhr = new XMLHttpRequest();
+                var uri = "http://localhost:4000/channels/mychannel/chaincodes/dtwin?peer=peer0.org1.example.com&fcn=queryPlot&args=%5B%22%22%5D"
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        var arr = JSON.parse(xhr.responseText)
+                        if (arr.length > 0) {
+                            for (var i = 0; i < arr.length; i++) {
+                                // alert(arr[i])
+                                $('<option id="plot' + i + '">' + arr[i] + '</option>').appendTo('#selPlotforCrop')
+                            }
+                        }
+                    }
+                }
+                xhr.open("GET", uri, true)
+                xhr.setRequestHeader("Content-Type", "application/json");
+                xhr.setRequestHeader('Authorization', 'Bearer ' +
+                        sessionStorage.getItem("token"));
+                xhr.send();
+
+            });
+
+        </script> 
+
+    </body>
+    <style type="text/css">
+        .disHide{
+            display: none;
+        }
+        .step{
+            width: 50px
+        }
+        .enableDisable{
+          disable:false;
+        }
+    </style>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Agriculture</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Page 1-1</a></li>
+            <li><a href="#">Page 1-2</a></li>
+            <li><a href="#">Page 1-3</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Page 2</a></li>
+        <li><a href="#">Page 3</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+
+
+
+
+
+
+
+
+
+
+
+<div class="container landing_page">
+  <div class="col-md-3">
+    <select class="form-control sel" id="sel1">
+        <option style="display: none;">My Account</option>
+        <option><span class="glyphicon glyphicon-file"></span> Account 1</option>
+
+        <option><span class="glyphicon glyphicon-pencil"></span> Profile</option>
+        <option><span class="glyphicon glyphicon-pencil"></span> Account 2</option>
+      </select>
+      <select class="form-control sel" id="sel2">
+        <option style="display: none;">My Address</option>
+        <option><span class="glyphicon glyphicon-file"></span> Watch List</option>
+
+        <option><span class="glyphicon glyphicon-pencil"></span> Profile</option>
+        
+      </select>
+      <select class="form-control sel" id="sel3">
+        <option style="display: none;">Notes</option>
+        <option><span class="glyphicon glyphicon-file"></span> Notes</option>
+
+        <option><span class="glyphicon glyphicon-pencil"></span> Transaction</option>
+        <option><span class="glyphicon glyphicon-pencil"></span> Address</option>
+      </select>
+      <select class="form-control sel" id="sel4">
+        <option style="display: none;">Assets</option>
+        <option><span class="glyphicon glyphicon-file"></span> Assest 1</option>
+
+        <option><span class="glyphicon glyphicon-pencil"></span> Asset 2</option>
+        
+      </select>
+  
+  </div>
+
+  <style>
+  .table{
+    border:1px solid #000;
+    
+</style>
+  <div class="col-md-7">
+    <table class="table table_top">
+    
+    <tbody>
+      <tr>
+        <td >Name</td>
+        <td > <input type="name" class="form-control" id="name" placeholder="Name" name="name"></td>
+        
+      </tr>
+      <tr>
+        <td>Login Id</td>
+        <td> <input type="name" class="form-control" id="name" placeholder="Login ID" name="Login ID"></td>
+        
+      </tr>
+      <tr>
+        <td>Transaction Address</td>
+        <td> <input type="name" class="form-control" id="name" placeholder="Transaction Address" name="Transaction Address"></td>
+        
+      </tr>
+       <tr>
+        <td>Role</td>
+        <td> <input type="name" class="form-control" id="name" placeholder="Role" name="Role"></td>
+        
+      </tr>
+       <tr>
+        <td>Public Key</td>
+        <td> <input type="name" class="form-control" id="name" placeholder="Public key" name="Public key"></td>
+        
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<script type="text/javascript" >
+    $("#sel4").on('click',function() {
+      window.location.href="./assetlist.html"
+       });
+</script> 
+
+</body>
+</html>
