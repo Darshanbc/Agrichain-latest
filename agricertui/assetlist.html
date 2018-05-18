@@ -95,19 +95,37 @@
       </select>
   </div>
 
-  <div class="col-md-8">           
-    <table class="table">
-      
-      <tbody class="tab_body">
-        <tr>
-          <td>Asset Name</td>
-          <td>Asset ID</td>
-          <td>Description</td>
-          <td>Date</td>
-          <td>Transaction Id</td>
-        </tr>  
-      </tbody>
-    </table>
+  <div class="col-md-8"> 
+   <table id="loadPlotTable" style="background-color: white" class="table">
+       <thead>
+                <th style="height: 10px">
+                    Plot
+                </th>
+                <th>
+                    Crop
+                </th>
+               
+            </thead>
+        <tbody id="fertListTab" class="tab_body"> 
+            
+        </tbody>
+      </table>          
+    <table id="loadStockTable" style="background-color: white" class="table">
+        <thead>
+                <th style="height: 7px">
+                    Fertlizer Name
+                </th>
+                <th>
+                    Fertilizer ID
+                </th>
+                <th>
+                    Quantity
+                </th>
+            </thead>
+        <tbody id="fertListTab" class="tab_body"> 
+            
+        </tbody>
+      </table>
     <div style="display:inline;">
       <button id="addAsset"   class="btn btn-default btn-primary" >Add Asset</button>
       <button id="delAsset" style="float:right;"  class="btn btn-default btn-primary">Delete Asset</button>
@@ -117,6 +135,43 @@
 <script type="text/javascript" >
  $("#addAsset").on('click',function() {
        window.location.href="./plots.html"
+});
+ $(function(){
+   var token = sessionStorage.getItem("token")
+                var xhr = new XMLHttpRequest();
+                var key
+                // if (place == "Plot") {
+                    key = ""//stock will be feteched from farmer enroll id
+                
+                console.log("key=" + key)
+                var uri = "http://localhost:4000/channels/mychannel/chaincodes/dtwin?peer=peer0.org1.example.com&fcn=getAssetList&args=%5B%22" + key + "%22%5D"
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        var resp = JSON.parse(xhr.responseText)
+                        console.log(resp)
+                        var cropPlotlist=resp["plotList"]
+                        console.log(resp["plotList"])
+                        var stockList=resp["stockList"]["store"]
+                        // console.log(stockList)
+
+                        for (var i = 0; i < stockList.length; i++) {
+                            var fertname = stockList[i].fertlizer_name
+                            var fertId = stockList[i].fertlizer_id
+                            var fertquantity = stockList[i].quantity
+                            $("<tr><td>" + fertname + "</td><td>" + fertId + "</td><td>" + fertquantity + "</td></tr>").appendTo("table#loadStockTable > tbody")
+                        }
+                        for (var i = 0; i < cropPlotlist.length; i++) {
+                          $("<tr><td style=\"height:7px\">"+cropPlotlist[i].plot+"</td><td>"+cropPlotlist[i].crop+"</td></tr>").appendTo("table#loadPlotTable >tbody")
+                           
+                          
+                        }
+                    }
+                }
+                xhr.open("GET", uri, true)
+                xhr.setRequestHeader("Content-Type", "application/json");
+                xhr.setRequestHeader('Authorization', 'Bearer ' +
+                        sessionStorage.getItem("token"));
+                xhr.send();
 });
 </script>
 </body>

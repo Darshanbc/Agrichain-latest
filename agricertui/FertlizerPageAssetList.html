@@ -96,27 +96,81 @@
   </div>
 
   <div class="col-md-8">           
-    <table class="table">
-      
-      <tbody class="tab_body">
-        <tr>
-          <td>Asset Name</td>
-          <td>Asset ID</td>
-          <td>Description</td>
-          <td>Date</td>
-          <td>Transaction Id</td>
-        </tr>  
-      </tbody>
-    </table>
+     <table id="loadStockTable" style="background-color: white" class="table"">
+        <thead><tr>
+                <th>
+                    Fertlizer Name
+                </th>
+                <th>
+                    Fertilizer ID
+                </th>
+                <th>
+                    Quantity
+                </th>
+            </tr></thead>
+        <tbody id="fertListTab" class="tab_body"> 
+            
+        </tbody>
+      </table>
     <div style="display:inline;">
       <button id="addAsset"   class="btn btn-default btn-primary" >Add Asset</button>
       <button id="delAsset" style="float:right;"  class="btn btn-default btn-primary">Delete Asset</button>
     </div>
   </div>
 </div>
+
 <script type="text/javascript" >
  $("#addAsset").on('click',function() {
        window.location.href="./FertlizerPageFertAddition.html"
+});
+
+// ---------------------tablepart
+
+// var $table = $('table.scroll'),
+//     $bodyCells = $table.find('tbody tr:first').children(),
+//     colWidth;
+
+// // Adjust the width of thead cells when window resizes
+// $(window).resize(function() {
+//     // Get the tbody columns width array
+//     colWidth = $bodyCells.map(function() {
+//         return 450//$(this).width();
+//     }).get();
+    
+//     // Set the width of thead columns
+//     $table.find('thead tr').children().each(function(i, v) {
+//         $(v).width(colWidth[i]);
+//     });    
+// }).resize();
+//-----------------------------------
+
+
+ $(function(){
+   var token = sessionStorage.getItem("token")
+                var xhr = new XMLHttpRequest();
+                var key
+                // if (place == "Plot") {
+                    key = ""//stock will be feteched from farmer enroll id
+                
+                console.log("key=" + key)
+                var uri = "http://localhost:4000/channels/mychannel/chaincodes/dtwin?peer=peer0.org1.example.com&fcn=queryStock&args=%5B%22" + key + "%22%5D"
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        var arr = JSON.parse(xhr.responseText)
+                        console.log(arr)
+                        for (var i = 0; i < arr.length; i++) {
+                            var fertname = arr[i].fertlizer_name
+                            var fertId = arr[i].fertlizer_id
+                            var fertquantity = arr[i].quantity
+                            $("<tr><td>" + fertname + "</td><td>" + fertId + "</td><td>" + fertquantity + "</td></tr>").appendTo("table#loadStockTable > tbody")
+                        }
+                    }
+                }
+                xhr.open("GET", uri, true)
+                xhr.setRequestHeader("Content-Type", "application/json");
+                xhr.setRequestHeader('Authorization', 'Bearer ' +
+                        sessionStorage.getItem("token"));
+                xhr.send();
 });
 </script>
 </body>

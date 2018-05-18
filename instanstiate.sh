@@ -206,17 +206,17 @@ ORG1_TOKEN=$(echo $ORG1_TOKEN | jq ".token" | sed "s/\"//g")
 
 # ORG2_TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MjU5ODg2NjIsInVzZXJuYW1lIjoiZmVydCAxIiwib3JnTmFtZSI6Ik9yZzEiLCJpYXQiOjE1MjU5NTI2NjJ9.MqYKcVikwQQFZDNxe5ylhPlWwOmGu1l5sXNLtxspoDs
 # echo
-# TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MjYxNjYwOTMsInVzZXJuYW1lIjoiQ3JpeWFnZW4iLCJvcmdOYW1lIjoiT3JnMSIsImlhdCI6MTUyNjEzMDA5M30.ogutNICkvD_uf0eBrDnN1o41X8g5wI2eS7ilmMyhdeY
-key="Criyagen"
-TRX_ID="cb799da8256834a4ad2bbebbef1febd0e47c44d28a47f6e0b2ed1bda9e54e2a4"
-# echo "GET query chaincode on peer1 of Org1"
-# echo $key
-# curl -s -X GET \
-#   "http://localhost:4000/channels/mychannel/chaincodes/dtwin?peer=peer0.org1.example.com&fcn=query&args=%5B%22$key%22%5D" \
-#   -H "authorization: Bearer $ORG1_TOKEN" \
-#   -H "content-type: application/json"
-# echo
-# echo
+TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MjY2NTQ3MjgsInVzZXJuYW1lIjoiZmFybSIsIm9yZ05hbWUiOiJPcmcxIiwiaWF0IjoxNTI2NjE4NzI4fQ.1mgyh9u8V-1gXpmS2_KIQB3Yu6WvdKRPuiS21kTdyio
+key=""
+# TRX_ID="cb799da8256834a4ad2bbebbef1febd0e47c44d28a47f6e0b2ed1bda9e54e2a4"
+echo "GET query chaincode on peer1 of Org1"
+echo $key
+curl -s -X GET \
+  "http://localhost:4000/channels/mychannel/chaincodes/dtwin?peer=peer0.org1.example.com&fcn=getAssetList&args=%5B%22$key%22%5D" \
+  -H "authorization: Bearer $TOKEN" \
+  -H "content-type: application/json"
+echo
+echo
 
 
 # echo "GET query write sets Transaction by TransactionID"
@@ -227,13 +227,13 @@ TRX_ID="cb799da8256834a4ad2bbebbef1febd0e47c44d28a47f6e0b2ed1bda9e54e2a4"
 # echo
 # echo
 
-echo "GET query Transaction by TransactionID"
-echo
-curl -s -X GET http://localhost:4000/channels/mychannel/transactions/$TRX_ID?peer=peer0.org1.example.com \
-  -H "authorization: Bearer $ORG1_TOKEN" \
-  -H "content-type: application/json"
-echo
-echo
+# echo "GET query Transaction by TransactionID"
+# echo
+# curl -s -X GET http://localhost:4000/channels/mychannel/transactions/$TRX_ID?peer=peer0.org1.example.com \
+#   -H "authorization: Bearer $ORG1_TOKEN" \
+#   -H "content-type: application/json"
+# echo
+# echo
 
 # echo "POST invoke  add Stock"
 # echo
